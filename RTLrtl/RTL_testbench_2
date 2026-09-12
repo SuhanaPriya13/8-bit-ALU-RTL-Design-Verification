@@ -1,0 +1,56 @@
+module ALU_8_BIT_tb;
+
+reg [7:0] operand_1, operand_2;
+reg [3:0] command;
+wire [15:0] calc_out;
+
+ALU_8_BIT DUT(
+    .operand_1(operand_1),
+    .operand_2(operand_2),
+    .command(command),
+    .calc_out(calc_out)
+);
+
+initial begin
+
+    // Give inputs
+    operand_1 = 8'd12;   // 00001100
+    operand_2 = 8'd5;    // 00000101
+
+    // AND
+    command = 4'b1000;
+    #10;
+
+    // NAND
+    command = 4'b1001;
+    #10;
+
+    // OR
+    command = 4'b1010;
+    #10;
+
+    // NOR
+    command = 4'b1011;
+    #10;
+
+    // XOR
+    command = 4'b1100;
+    #10;
+
+    // XNOR
+    command = 4'b1101;
+    #10;
+
+    // NOT operand_1
+    command = 4'b1110;
+    #10;
+
+    // operand_1
+    command = 4'b1111;
+    #10;
+
+    $finish;
+
+end
+
+endmodule
