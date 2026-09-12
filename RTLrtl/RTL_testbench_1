@@ -1,0 +1,30 @@
+module ALU_8_BIT_tb;
+
+reg [7:0] operand_1, operand_2;
+reg [3:0] command;
+wire [15:0] calc_out;
+
+ALU_8_BIT DUT(
+    .operand_1(operand_1),
+    .operand_2(operand_2),
+    .command(command),
+    .calc_out(calc_out)
+);
+
+initial begin
+    operand_1 = 8'd10;
+    operand_2 = 8'd10;
+
+    command = 4'b0000; #10;
+    command = 4'b0001; #10;
+    command = 4'b0010; #10;
+    command = 4'b0100; #10;
+    command = 4'b1000; #10;
+    command = 4'b1001; #10;
+    command = 4'b1010; #10;
+    command = 4'b1011; #10;
+
+    $finish;
+end
+
+endmodule
