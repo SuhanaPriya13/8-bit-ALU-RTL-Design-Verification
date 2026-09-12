@@ -12,19 +12,43 @@ ALU_8_BIT DUT(
 );
 
 initial begin
-    operand_1 = 8'd10;
-    operand_2 = 8'd10;
 
-    command = 4'b0000; #10;
-    command = 4'b0001; #10;
-    command = 4'b0010; #10;
-    command = 4'b0100; #10;
-    command = 4'b1000; #10;
-    command = 4'b1001; #10;
-    command = 4'b1010; #10;
-    command = 4'b1011; #10;
+    // Test ADD
+    operand_1 = 8'd10;
+    operand_2 = 8'd5;
+    command = 4'b0000;
+    #10;
+
+    // Test SUB
+    command = 4'b0001;
+    #10;
+
+    // Test MUL
+    command = 4'b0010;
+    #10;
+
+    // Test DIV
+    command = 4'b0011;
+    #10;
+
+    // Test AND
+    command = 4'b1000;
+    #10;
+
+    // Test OR
+    command = 4'b1010;
+    #10;
+
+    // Test XOR
+    command = 4'b1100;
+    #10;
+
+    // Test NOT
+    command = 4'b1110;
+    #10;
 
     $finish;
+
 end
 
 endmodule
